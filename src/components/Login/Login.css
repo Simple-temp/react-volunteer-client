@@ -1,0 +1,41 @@
+.logo-box img
+{
+    width:230px;
+    height:auto;
+}
+.login-box
+{
+    margin-top:100px;
+    border:1px solid rgb(107, 107, 107);
+    text-align:center;
+    padding:120px 50px;
+    background-color: #fff;
+}
+.login-box h3 
+{
+    font-size:20px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.login-box ul li{
+    width:100%;
+    list-style: none;
+    border: 1px solid rgb(107, 107, 107);
+    padding:6px 8px;
+    margin-top:14px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    cursor:pointer;
+}
+.login-box ul li img 
+{
+    width:20px;
+    margin-right:10px;
+}
+ul 
+{
+    padding-left:0rem;
+}
