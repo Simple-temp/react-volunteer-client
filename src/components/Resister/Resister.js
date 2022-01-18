@@ -24,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Resister = () => {
 
+    document.title = "Resister form"
+
     const [loggedInuser,setloggedInuser] = useContext( UserContext )
 
     const [selectedDate, setSelectedDate] = useState({

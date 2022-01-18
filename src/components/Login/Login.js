@@ -12,6 +12,8 @@ initializeApp(firebaseConfig);
 
 const Login = () => {
 
+    document.title = "Login"
+
     const [loggedInuser,setloggedInuser] = useContext( UserContext )
 
     const provider = new GoogleAuthProvider();

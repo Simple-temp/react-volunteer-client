@@ -5,6 +5,7 @@ import AccountInfo from '../AccountInfo/AccountInfo';
 import "./Account.css"
 
 const Account = () => {
+    document.title = "Account"
 
     const [loggedInuser,setloggedInuser] = useContext( UserContext )
 

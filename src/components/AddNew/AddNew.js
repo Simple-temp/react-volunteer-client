@@ -6,8 +6,8 @@ import "./AddNew.css";
 
 
 const AddNew = () => {
-
-    // const [volentiar,setvolentiar] = useState([]);
+    
+    document.title = "Add new event"
 
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();

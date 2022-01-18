@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { makeStyles } from '@material-ui/core/styles';
 import Navbar from '../Navbar/Navbar';
 import NewRole from '../NewRole/NewRole';
 import Role from '../Role/Role';
+import loader from "../../img/gif/loading.gif"
 import "./Home.css"
 
 
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      '& > * + *': {
+        marginLeft: theme.spacing(2),
+      },
+    },
+}));
+
 const Home = () => {
+    const classes = useStyles();
 
     const [volentiar,setvolentiar] = useState([]);
 
@@ -26,6 +40,9 @@ const Home = () => {
     return (
         <>
             <header>
+            {
+                volentiar.length === 0 && <div className='loading'><img src={loader} alt="" /></div>
+            }
                 <Navbar></Navbar>
             </header>
             <section className='roles'>

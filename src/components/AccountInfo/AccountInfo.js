@@ -34,7 +34,7 @@ const AccountInfo = (props) => {
                                 <p>{Data.description}</p>
                             </div>
                         </div>
-                    <button className='removebtn' onClick={(e)=>deleteInfo(e,key)} >Delete</button>
+                    <button className='removebtn' onClick={(e)=>deleteInfo(e,key)} >Cancel</button>
             </div> 
         </>
     );

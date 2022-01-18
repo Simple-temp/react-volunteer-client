@@ -2,6 +2,8 @@ import React from 'react';
 import "./ShowList.css"
 
 const ShowList = (props) => {
+
+    document.title = "Show all user list"
     
     const {name,email,Data,selectTime,key} = props.items;
 
