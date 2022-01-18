@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../Navbar/Navbar';
+import NewRole from '../NewRole/NewRole';
 import Role from '../Role/Role';
 import "./Home.css"
 
@@ -8,13 +9,19 @@ const Home = () => {
 
     const [volentiar,setvolentiar] = useState([]);
 
+    const [ addNew , setAddNew ] = useState([])
+
     useEffect(()=>{
         fetch(`http://localhost:4000/getVolentiar`)
         .then( res => res.json())
         .then( data => setvolentiar(data))
     },[])
 
-
+    useEffect(()=>{
+        fetch(`http://localhost:4000/getNewAddedInfo`)
+        .then( res => res.json())
+        .then( data => setAddNew(data))
+    },[])
 
     return (
         <>
@@ -31,6 +38,9 @@ const Home = () => {
                     <div className="row  mt-5">
                         {
                         volentiar.map(role => <Role singleRole={role} key={role.id}></Role> )
+                        }
+                        {
+                        addNew.map( newInfo => <NewRole newEvent={newInfo} key={newInfo.key}></NewRole>)
                         }
                     </div>
                 </div>
@@ -53,7 +63,6 @@ export default Home;
 
 
 // import fakedata from '../../fakedata/fakedata.json'
-
 
     //     const uploadbtn = ()=>{
 

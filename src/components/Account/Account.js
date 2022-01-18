@@ -11,7 +11,7 @@ const Account = () => {
     const [info,setInfo] = useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/getDataFromInfo`)
+        fetch(`http://localhost:4000/getDataFromInfo?email=`+loggedInuser.email)
         .then( res => res.json())
         .then( data => setInfo(data))
     },[])

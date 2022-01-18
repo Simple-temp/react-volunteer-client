@@ -6,7 +6,6 @@ import Resister from './components/Resister/Resister';
 import Account from './components/Account/Account';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import NotFound from './components/NotFound/NotFound';
-import Adminbar from './components/AdminBar/Adminbar';
 import Admin from './components/Admin/Admin';
 import AddNew from './components/AddNew/AddNew';
 
@@ -26,11 +25,13 @@ function App() {
         <Routes>
           <Route path="/" element={ <Home/> }></Route>
           <Route path="/login" element={ <Login/> }></Route>
+          <Route path="/resister" element={ <PrivateRoute>
+            <Resister/>
+          </PrivateRoute> }></Route>
           <Route path="/resister/:id" element={ <PrivateRoute>
             <Resister/>
           </PrivateRoute> }></Route>
           <Route path="/account" element={ <Account/> }></Route>
-          <Route path="/adminbar" element={ <Adminbar/> }></Route>
           <Route path="/showlist" element={ <Admin/> }></Route>
           <Route path="/addnew" element={ <AddNew/> }></Route>
           <Route path="/*" element={ <NotFound/> }></Route>

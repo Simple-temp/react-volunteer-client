@@ -113,7 +113,7 @@ const Resister = () => {
 
                             </form>
                                         <hr/>
-                             <Link to="/account"><button type="submit" className='gobtn w-100 d-block '>Go </button></Link>
+                             <Link to="/account"><button type="submit" className='gobtn w-100 d-block '>Go to see resister item</button></Link>
 
                     </div>
                 </div>

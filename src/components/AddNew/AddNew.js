@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import icon from '../../img/icon/icon-1.png';
+import "./AddNew.css";
+
 
 const AddNew = () => {
 
-    const [volentiar,setvolentiar] = useState([]);
+    // const [volentiar,setvolentiar] = useState([]);
 
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -13,13 +16,18 @@ const AddNew = () => {
         
         const uploadData = data
 
-        fetch(`http://localhost:4000/add`, {
+        fetch(`http://localhost:4000/addnew`, {
             method: 'POST',
             body: JSON.stringify(uploadData),
             headers: {'Content-type': 'application/json'}
         })
         .then( res => res.json())
-        .then( data => setvolentiar(data))
+        .then( data => {
+            if(data)
+            {
+                alert("New data added on home page please reload the home page ")
+            }
+        })
 
         console.log(data)
     };
@@ -29,26 +37,51 @@ const AddNew = () => {
     return (
         <div>
             <div className="top-side">
-                <ul>
-                    <li> <Link to="/showlist">show list</Link></li>
-                    <li> <Link to="/addnew">add new</Link></li>
-                </ul>
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid">
+                        <Link class="navbar-brand" to="/"><img src={icon} alt="" /></Link>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="newItems">
+                                    <Link to="/showlist" className='a'>show list</Link>
+                                </li>
+                                <li class="newItems">
+                                    <Link to="/addnew" className='a'>add new</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <div className="addnew">
-                <h1>add new</h1>
+            <div className="addnew container">
+                <h6>add new</h6>
 
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    
-                    <input {...register("name", { required: true })} placeholder='name'/>
-                    {errors.name && <span>This field is required</span>}
 
-                    <input {...register("img", { required: true })} placeholder='img'/>
-                    {errors.img && <span>This field is required</span>}
+                    <div className="row">
+                        <div className="col-lg-6 col-md-6 col-sm-12">
+                            <input {...register("name", { required: true })} placeholder='Name' className='w-100 newField'/>
+                            {errors.name && <span>This field is required</span>}
+                        </div>
+                        <div className="col-lg-6 col-md-6 col-sm-12">
+                            <input {...register("key", { required: true })} placeholder='Key' className='w-100 newField'/>
+                            {errors.key && <span>This field is required</span>}
+                        </div>
+                    </div>
 
-                    <input {...register("key", { required: true })} placeholder='key'/>
-                    {errors.key && <span>This field is required</span>}
+                    <div className="row mt-5">
+                        <div className="col-lg-6 col-md-6 col-sm-12">
+                            <input {...register("img", { required: true })} placeholder='Img'/>
+                            {errors.img && <span>This field is required</span>}
+                        </div>
+                        <div className="col-lg-6 col-md-6 col-sm-12">
+                            <input type="submit" value="Add new" className='addBtn'/>
+                        </div>
+                    </div>
                     
-                    <input type="submit" value="Add new"/>
                 </form>
 
             </div>
