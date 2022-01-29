@@ -9,7 +9,7 @@ const NewRole = (props) => {
     const deleteInfo = (e,id) =>{
         console.log(id,"clicked it")
 
-        fetch(`http://localhost:4000/newDeleteInfo/${id}`,{
+        fetch(`https://volunteer-website.herokuapp.com/newDeleteInfo/${id}`,{
             method:"DELETE"
         })
         .then( res => res.json())

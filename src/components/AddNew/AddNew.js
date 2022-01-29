@@ -16,7 +16,7 @@ const AddNew = () => {
         
         const uploadData = data
 
-        fetch(`http://localhost:4000/addnew`, {
+        fetch(`https://volunteer-website.herokuapp.com/addnew`, {
             method: 'POST',
             body: JSON.stringify(uploadData),
             headers: {'Content-type': 'application/json'}

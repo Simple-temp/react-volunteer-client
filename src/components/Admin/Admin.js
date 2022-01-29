@@ -9,7 +9,7 @@ const Admin = () => {
     const [show,setShow] = useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/showlist`)
+        fetch(`https://volunteer-website.herokuapp.com/showlist`)
         .then( res => res.json())
         .then( data => setShow(data))
     },[])

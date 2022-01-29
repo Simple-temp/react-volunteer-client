@@ -26,13 +26,13 @@ const Home = () => {
     const [ addNew , setAddNew ] = useState([])
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/getVolentiar`)
+        fetch(`https://volunteer-website.herokuapp.com/getVolentiar`)
         .then( res => res.json())
         .then( data => setvolentiar(data))
     },[])
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/getNewAddedInfo`)
+        fetch(`https://volunteer-website.herokuapp.com/getNewAddedInfo`)
         .then( res => res.json())
         .then( data => setAddNew(data))
     },[])

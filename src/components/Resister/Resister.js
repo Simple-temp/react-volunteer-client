@@ -37,7 +37,7 @@ const Resister = () => {
     const {id} = useParams()
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/getVolentiarsingle/${id}`)
+        fetch(`https://volunteer-website.herokuapp.com/getVolentiarsingle/${id}`)
         .then( res => res.json())
         .then( data => setnewuser(data))
     },[id])
@@ -51,7 +51,7 @@ const Resister = () => {
 
     const onSubmit = data => {
         const info = {...loggedInuser , Data:data , ...selectedDate ,...newuser}
-        fetch(`http://localhost:4000/postSlecectedVolunteer`,{
+        fetch(`https://volunteer-website.herokuapp.com/postSlecectedVolunteer`,{
             method:"POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(info)
@@ -63,8 +63,6 @@ const Resister = () => {
     }
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  
-    // console.log(watch("example")); 
   
     const {name,img} = newuser;
 

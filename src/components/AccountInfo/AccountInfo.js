@@ -9,7 +9,7 @@ const AccountInfo = (props) => {
     const deleteInfo = (e,id) =>{
         console.log(id,"clicked it")
 
-        fetch(`http://localhost:4000/deleteInfo/${id}`,{
+        fetch(`https://volunteer-website.herokuapp.com/deleteInfo/${id}`,{
             method:"DELETE"
         })
         .then( res => res.json())
